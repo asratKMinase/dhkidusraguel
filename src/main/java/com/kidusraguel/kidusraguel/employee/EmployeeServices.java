@@ -36,13 +36,13 @@ public class EmployeeServices  {
 
     public Employee create(Employee newEmployee){
         if(!validateInput(newEmployee)){
-            throw new InvalidRequestException("Employee input was not validated, either empty String or null values");
+            throw new InvalidRequestException("Input was not validated, either empty String or null values");
         }
 
         Employee persistedEmployee= employeeDao.save(newEmployee);
 
         if(persistedEmployee == null){
-            throw new ResourcePersistanceException("Customer was not persisted to the database upon registration");
+            throw new ResourcePersistanceException("Employee was not persisted to the database upon registration");
         }
         return persistedEmployee;
     }
